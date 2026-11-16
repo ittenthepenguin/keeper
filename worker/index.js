@@ -97,7 +97,7 @@ function eventStream(request,bucket,sid) {
   const cleanup=()=>{closed=true;clearInterval(timer);clearTimeout(end);request.signal.removeEventListener('abort',stop)};
   const stop=()=>{if(closed)return;cleanup();try{controller.close()}catch{}};
   async function send(){if(closed||reading)return;reading=true;try{const {state}=await load(bucket,sid);const text=JSON.stringify(publicState(state));if(!closed&&text!==last){last=text;controller.enqueue(encoder.encode(`data: ${text}\n\n`))}}catch(error){if(!closed){cleanup();controller.error(error)}}finally{reading=false}}
-  const stream=new ReadableStream({start(c){controller=c;send();timer=setInterval(send,1000);end=setTimeout(stop,10000);request.signal.addEventListener('abort',stop,{once:true})},cancel(){cleanup()}});
+  const stream=new ReadableStream({start(c){controller=c;send();timer=setInterval(send,1000);end=setTimeout(stop,300000);request.signal.addEventListener('abort',stop,{once:true})},cancel(){cleanup()}});
   return new Response(stream,{headers:{'content-type':'text/event-stream','cache-control':'no-store','connection':'keep-alive'}});
 }
 export function createWorker(assets) {
