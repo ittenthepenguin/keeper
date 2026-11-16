@@ -2,7 +2,9 @@
 
 Keeper’s company landing page, terminal Menu, and connected browser prototype for Georgia Tech CS4803 Group 6.
 
-Hosted address: https://keeper-itten-gt2026.tinypivot1.chatgpt.site/
+Company landing page: https://ittenthepenguin.github.io/keeper/
+
+Connected Menu and prototype host: https://keeper-itten-gt2026.tinypivot1.chatgpt.site/
 
 ## Navigation
 
@@ -13,7 +15,7 @@ Hosted address: https://keeper-itten-gt2026.tinypivot1.chatgpt.site/
 - `/dashcam` — camera/recording companion
 - `/s/<token>` — a scoped recipient link created inside the demo
 
-All application links use the same origin. The pilot email opens a draft to ioh38@gatech.edu. Account sign-in remains a clearly labeled preview, with a working link into the demo workspace.
+The landing page is published from `docs/` with GitHub Pages. Its Menu/demo links open the connected host; the terminal’s landing/contact destinations return to the GitHub page. All prototype API and recipient requests stay on the connected host’s origin. The pilot email opens a draft to ioh38@gatech.edu. Account sign-in remains a clearly labeled preview, with a working link into the demo workspace.
 
 ## Prototype behavior
 
@@ -32,7 +34,7 @@ npm test
 npm run build
 ```
 
-The build embeds the static assets and the Worker adapter in `dist/server/index.js`. `.openai/hosting.json` identifies the Site and its `BUCKET` R2 binding. Publishing uses the Sites source/version/deployment workflow. No runtime secrets are stored in this repository.
+The build embeds static assets and the Worker adapter in `dist/server/index.js`, and prepares the GitHub Pages copy in `docs/`. `publish.config.json` controls the connected URLs. `.openai/hosting.json` identifies the Site and its `BUCKET` R2 binding. Worker publication uses the Sites source/version/deployment workflow. GitHub Pages uses the `main` branch’s `/docs` directory. No runtime secrets are stored in this repository.
 
 ## Team
 

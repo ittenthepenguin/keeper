@@ -14,6 +14,10 @@ async function collect(dir) {
   }
 }
 await collect('site');
+const publish=JSON.parse(await readFile('publish.config.json','utf8'));
+const menuConfig='window.KEEPER_CONFIG = '+JSON.stringify({landingUrl:publish.landingUrl,demoUrl:'/demo/',loginUrl:'',contactUrl:new URL('#pilot',publish.landingUrl).href,contactEmail:'ioh38@gatech.edu'})+';\n';
+assets['/menu/config.js']=['text/javascript; charset=utf-8',Buffer.from(menuConfig).toString('base64'),createHash('sha256').update(menuConfig).digest('hex')];
+await import('./pages.mjs');
 await rm('dist', {recursive:true,force:true});
 await mkdir('dist/server', {recursive:true});
 await mkdir('dist/.openai', {recursive:true});
