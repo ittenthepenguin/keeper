@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101411" />
+    <meta name="description" content="Keeper Menu — open the landing page, explore the demo, or meet the team." />
+    <title>Keeper / Menu</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./assets/manrope-bold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      try { document.documentElement.dataset.theme = localStorage.getItem('keeper-theme') === 'light' ? 'light' : 'dark'; } catch {}
+    </script>
+    <script src="./config.js" defer></script>
+    <script src="./ascii.js" defer></script>
+    <script src="./app.js" defer></script>
+    <script src="./entrance.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#navigation">Skip to menu</a>
+    <div class="terminal">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Keeper menu">
+          <svg class="brand-mark" viewBox="0 0 28 31" fill="none" aria-hidden="true"><path d="M3 5.5 14 2l11 3.5v11c0 5-4.4 9.6-11 12.5C7.4 26.1 3 21.5 3 16.5v-11Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 10v11m8-11-8 6 8 5" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span data-type data-type-delay="40">keeper<span class="brand-period">.</span></span>
+        </a>
+        <div class="breadcrumb" data-type data-type-delay="100"><span>~/keeper</span><span class="slash">/</span> menu<span class="cursor">_</span></div>
+        <div class="topbar-tools">
+          <button id="replay-intro" class="replay-intro" type="button" aria-label="Replay terminal entrance" title="Replay terminal entrance (R)"><canvas id="signal-star" width="80" height="64" aria-hidden="true"></canvas><span>REPLAY BOOT</span></button>
+          <span class="build-tag" data-type data-type-delay="350">INTERFACE EXPLORATION <span>01</span></span>
+          <span class="tool-separator"></span>
+          <button id="theme-toggle" class="tool-button" type="button" aria-label="Switch to light mode" title="Switch theme (T)">
+            <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M20 14A8.5 8.5 0 0 1 10 4 8.5 8.5 0 1 0 20 14Z"/></svg>
+            <span id="theme-label">LIGHT</span>
+          </button>
+          <button id="help-button" class="help-button" type="button" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">?</button>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="scene-panel" aria-labelledby="scene-heading">
+          <div class="scene-header">
+            <h2 id="scene-heading" data-type data-type-delay="160"><span class="live-dot"></span> A LITTLE DRIVE. A BIG WHAT IF.</h2>
+            <span class="scene-counter">SCENE <span id="scene-number">01</span> / 04</span>
+          </div>
+          <div class="scene-view">
+            <div class="scene-coordinate" aria-hidden="true" data-type data-type-delay="1900">KEEPER FIELD NOTES<br><span>ROAD STUDY / 001</span></div>
+            <div class="rec-label" aria-hidden="true"><span></span> REC</div>
+            <canvas id="road-canvas" role="img" aria-label="Animated ASCII illustration: a little car follows a winding road, steers around an obstacle, and continues while a sample incident clip is preserved. This is an illustrative scene.">
+              An ASCII car travels along a road. A driver avoids an obstacle; a sample clip is preserved for handoff.
+            </canvas>
+            <div class="scene-bottomline" aria-hidden="true"><span id="scene-frame">FRAME 00001</span><span>ASCII / PROCEDURAL</span></div>
+            <div class="scene-vignette"></div>
+            <div id="boot-scene" class="boot-scene" aria-hidden="true" hidden>
+              <div class="boot-heading"><span>SHELTER STAR / MENU</span><span id="boot-percent">000%</span></div>
+              <canvas id="boot-star" width="640" height="400"></canvas>
+              <div class="boot-commands">
+                <div data-type data-type-delay="80" data-type-speed="18"><span class="boot-prompt">keeper@local:~$</span> ./menu --parallel</div>
+                <div data-type data-type-delay="460" data-type-speed="16">↳ rendering shelter-star <span class="boot-ok">[ OK ]</span></div>
+                <div data-type data-type-delay="960" data-type-speed="16">↳ mounting road-study <span class="boot-ok">[ OK ]</span></div>
+                <div data-type data-type-delay="1360" data-type-speed="16">↳ opening destinations <span class="boot-ok">[ OK ]</span></div>
+              </div>
+              <div class="boot-bottom"><span id="boot-status">OPENING MENU.</span><span>ANY KEY / CLICK TO SKIP</span></div>
+              <div class="boot-progress"><span id="boot-progress"></span></div>
+            </div>
+          </div>
+          <div class="story-panel">
+            <div class="story-step"><span id="story-index">01</span><span class="story-rule"></span><span id="story-phase" data-type data-type-delay="500">A QUIET DRIVE</span></div>
+            <p id="story-quote" data-type data-type-delay="600" data-type-speed="26">Footage can be overwritten before it’s needed.</p>
+            <div class="story-caption"><span id="story-caption" data-type data-type-delay="900" data-type-speed="14">Defense counsel · design doc, p. 1</span><button id="pause-button" type="button" aria-label="Pause animation" title="Pause animation (P)"><span id="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">PAUSE</span></button></div>
+            <div class="story-progress" aria-hidden="true"><span id="story-progress"></span></div>
+          </div>
+          <div class="scene-footnote" data-type data-type-delay="1200" data-type-speed="12"><span>†</span> Customer discovery, paraphrased. Road and capture states are illustrative.</div>
+        </section>
+
+        <section class="navigation-panel" aria-labelledby="menu-heading">
+          <div class="menu-copy">
+            <p class="eyebrow" data-type data-type-delay="200"><span class="small-cross">+</span> MENU / YOUR NEXT MOVE</p>
+            <h1 id="menu-heading" data-type data-type-delay="330" data-type-speed="43">Some moments<br>need a <span>keeper.</span></h1>
+            <p class="intro" data-type data-type-delay="620" data-type-speed="18">An easier handoff for incident video.<br>Keep the footage. Carry the record.</p>
+          </div>
+          <nav id="navigation" aria-label="Keeper menu" tabindex="-1">
+            <div class="nav-heading"><span data-type data-type-delay="500">SELECT A DESTINATION</span><span id="selection-count">[ 02 / 05 ]</span></div>
+            <div class="nav-items">
+              <button class="nav-item" data-destination="landing" data-index="0" type="button"><span class="nav-arrow" aria-hidden="true">›</span><span class="nav-index">01</span><span class="nav-name">Landing page</span><span class="nav-end" aria-hidden="true">↗</span></button>
+              <a class="nav-item" data-destination="demo" data-index="1" href="/demo/" data-selected="true"><span class="nav-arrow" aria-hidden="true">›</span><span class="nav-index">02</span><span class="nav-name">Explore the demo</span><span class="nav-tag">START HERE</span><span class="nav-end" aria-hidden="true">↗</span></a>
+              <button class="nav-item" data-destination="login" data-index="2" type="button"><span class="nav-arrow" aria-hidden="true">›</span><span class="nav-index">03</span><span class="nav-name">Log in</span><span class="nav-end" aria-hidden="true">↗</span></button>
+              <button class="nav-item" data-destination="contact" data-index="3" type="button"><span class="nav-arrow" aria-hidden="true">›</span><span class="nav-index">04</span><span class="nav-name">Business contact</span><span class="nav-end" aria-hidden="true">↗</span></button>
+              <button class="nav-item" data-destination="about" data-index="4" type="button"><span class="nav-arrow" aria-hidden="true">›</span><span class="nav-index">05</span><span class="nav-name">About us</span><span class="nav-end" aria-hidden="true">↗</span></button>
+            </div>
+            <div class="nav-preview"><span class="prompt-symbol" aria-hidden="true">&gt;_</span><p id="nav-description">Walk through the driver-to-recipient experience.</p></div>
+          </nav>
+          <div class="keyboard-guide"><span><kbd>↑</kbd><kbd>↓</kbd> to explore</span><span><kbd>↵</kbd> to enter</span><span class="mouse-hint">or just click</span></div>
+          <div class="mission-line" data-type data-type-delay="1250" data-type-speed="15"><span class="mini-shield" aria-hidden="true">◇</span> FOR THE MOMENT. AND WHAT COMES AFTER.</div>
+        </section>
+      </main>
+
+      <footer class="footer"><div><span class="status-dot"></span><span data-type data-type-delay="350">ALL ROADS LEAD TO A STORY.</span></div><span class="footer-center" data-type data-type-delay="550">PRESERVE <span>→</span> REVIEW <span>→</span> SHARE</span><span data-type data-type-delay="750">KEEPER <span class="footer-version">/</span> TEAM 06 <span class="footer-version">© 2026</span></span></footer>
+    </div>
+
+    <dialog id="info-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-chrome"><span id="dialog-path">~/keeper/about</span><button id="close-dialog" type="button" aria-label="Close panel">Esc <span aria-hidden="true">×</span></button></div>
+      <div id="dialog-content" class="dialog-content"></div>
+    </dialog>
+    <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+    <noscript><div class="noscript">Enable JavaScript for the ASCII animation and destination previews. <a href="/demo/">Open the current Keeper demo</a>.</div></noscript>
+  </body>
+</html>
